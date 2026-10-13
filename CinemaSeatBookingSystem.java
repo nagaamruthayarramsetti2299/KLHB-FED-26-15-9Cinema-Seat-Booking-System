@@ -1,0 +1,170 @@
+
+import java.util.Scanner;
+
+class Seat {
+    int seatNumber;
+    String customerName;
+    boolean booked;
+
+    // Constructor
+    Seat(int seatNumber) {
+        this.seatNumber = seatNumber;
+        this.customerName = "";
+        this.booked = false;
+    }
+}
+
+public class CinemaSeatBookingSystem {
+
+    Seat[] seats = new Seat[10];
+    Scanner sc = new Scanner(System.in);
+    final int TICKET_PRICE = 200;
+
+    // Constructor to initialize all seats
+    CinemaSeatBookingSystem() {
+        for (int i = 0; i < seats.length; i++) {
+            seats[i] = new Seat(i + 1);
+        }
+    }
+
+    // Display all seats
+    void displaySeats() {
+        System.out.println("\n----- CINEMA SEAT STATUS -----");
+
+        for (int i = 0; i < seats.length; i++) {
+            if (seats[i].booked) {
+                System.out.println("Seat " + seats[i].seatNumber
+                        + " - BOOKED");
+            } else {
+                System.out.println("Seat " + seats[i].seatNumber
+                        + " - AVAILABLE");
+            }
+        }
+    }
+
+    // Book a seat
+    void bookSeat() {
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine().trim();
+
+        if (name.isEmpty()) {
+            System.out.println("Name cannot be empty.");
+            return;
+        }
+
+        System.out.print("Enter seat number (1-10): ");
+        int seatNumber = readSeatNumber();
+
+        if (seatNumber == -1) {
+            System.out.println("Invalid seat number.");
+            return;
+        }
+
+        Seat selectedSeat = seats[seatNumber - 1];
+
+        if (selectedSeat.booked) {
+            System.out.println("Sorry! This seat is already booked.");
+        } else {
+            selectedSeat.booked = true;
+            selectedSeat.customerName = name;
+
+            int total = TICKET_PRICE;
+
+            System.out.println("\nBooking successful!");
+            System.out.println("Customer: " + name);
+            System.out.println("Seat number: " + seatNumber);
+            System.out.println("Ticket price: Rs. " + total);
+        }
+    }
+
+    // Cancel a booking
+    void cancelBooking() {
+        System.out.print("Enter seat number to cancel (1-10): ");
+        int seatNumber = readSeatNumber();
+
+        if (seatNumber == -1) {
+            System.out.println("Invalid seat number.");
+            return;
+        }
+
+        Seat selectedSeat = seats[seatNumber - 1];
+
+        if (!selectedSeat.booked) {
+            System.out.println("This seat is not booked.");
+        } else {
+            System.out.println("Booking cancelled for "
+                    + selectedSeat.customerName);
+
+            selectedSeat.booked = false;
+            selectedSeat.customerName = "";
+            System.out.println("Seat is now available.");
+        }
+    }
+
+    // Read and validate the seat number
+    int readSeatNumber() {
+        try {
+            int number = Integer.parseInt(sc.nextLine().trim());
+
+            if (number >= 1 && number <= seats.length) {
+                return number;
+            }
+        } catch (NumberFormatException e) {
+            // Input was not a whole number
+        }
+
+        return -1;
+    }
+
+    // Main menu
+    void start() {
+        int choice;
+
+        do {
+            System.out.println("\n===== CINEMA SEAT BOOKING SYSTEM =====");
+            System.out.println("1. Display seats");
+            System.out.println("2. Book a seat");
+            System.out.println("3. Cancel booking");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+
+            try {
+                choice = Integer.parseInt(sc.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid menu number.");
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    displaySeats();
+                    break;
+
+                case 2:
+                    bookSeat();
+                    break;
+
+                case 3:
+                    cancelBooking();
+                    break;
+
+                case 4:
+                    System.out.println("Thank you for using our system!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+
+    public static void main(String[] args) {
+        CinemaSeatBookingSystem cinema =
+                new CinemaSeatBookingSystem();
+
+        cinema.start();
+    }
+}
