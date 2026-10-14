@@ -3,19 +3,19 @@ Srujana Peddada - 2620090032 srujanapeddada2008@gmail.com
 # KLHB-FED-26-15-9Cinema-Seat-Booking-System
 
 
-PBL SEM - I PROJECT ABSTRACT
-Department:	FED
-Subject:	PSPJ (Problem Solving Using Java)
-Academic Year:	I-I Semester (2026-27)
-Faculty Name:	Dr. K. Sreeram Murthy
-Student Name:	Yarramsetti Naga Amrutha,	Srujana Peddada
-Roll Number	2620030083,	2620090032
-Contact Number:	7032416967,	9975561564
-Branch:	CSE-Section 15,	CS&IT-Section 15
-Course Outcome	
-Project Area:	Money & Commerce
-Project Title:Cinema Seat Booking System
-Project Number:15
+PBL SEM - I PROJECT ABSTRACT;
+Department:	FED;
+Subject:	PSPJ (Problem Solving Using Java);
+Academic Year:	I-I Semester (2026-27);
+Faculty Name:	Dr. K. Sreeram Murthy;
+Student Name:	Yarramsetti Naga Amrutha,	Srujana Peddada;
+Roll Number	2620030083,	2620090032;
+Contact Number:	7032416967,	9975561564;
+Branch:	CSE-Section 15,	CS&IT-Section 15;
+Course Outcome;	
+Project Area:	Money & Commerce;
+Project Title:Cinema Seat Booking System;
+Project Number:15;
 
 Keywords: Cinema Seat Booking, Movie Reservation System, Java, Seat Management, Booking and Cancellation, Show Timings, User Convenience, Exception Handling, Classes and Objects, Automation, User-Friendly System.
 
